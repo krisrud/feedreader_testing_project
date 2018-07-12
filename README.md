@@ -52,6 +52,8 @@ For developing I've used:
 
 * [starter code](https://github.com/udacity/frontend-nanodegree-feedreader)
 
-* external libraries: JQuery
+* JQuery 
+
+* Jasmine framework
 
 
