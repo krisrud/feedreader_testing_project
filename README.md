@@ -19,12 +19,12 @@ This test ensures that
   * the menu element is hidden by default,
   * the menu changes visibility when the menu icon is clicked,
 
-**3. Test Suite "Initial Entries"
+**3. Test Suite "Initial Entries"**
 
 This test ensures 
   * when the loadFeed function is called and completes its work, there is at least a single .entry element within the .feed container
 
-**4. Test Suite "New Feed Selection"
+**4. Test Suite "New Feed Selection"**
 
 This test ensures
   * when a new feed is loaded by the loadFeed function that the content actually changes.
