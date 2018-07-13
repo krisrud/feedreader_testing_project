@@ -4,27 +4,26 @@ $(function () {
         // This test checks that the allFeeds variable has been defined and that it is not empty
         it('are defined', function () {
             expect(allFeeds).toBeDefined();
-            expect(allFeeds.length).not.toBe(0);
+            expect(allFeeds.length).toBeGreaterThan(0);
         });
 
 
         // This test checks that the URLs of allFeeds object are defined and are not empty.
         it('URL is defined', function () {
-            for (let i = 0; i < allFeeds.length; i++) {
-                expect(allFeeds[i].url).toBeDefined();
-                expect(allFeeds[i].url).not.toBe(0);
-            }
+           allFeeds.forEach(function(feed){
+               expect(feed.url).toBeDefined();
+               expect(feed.url.length).toBeGreaterThan(0);
+           });
         });
-
+           
 
         // This test checks that the name values of allFeeds object are defined and are not empty.
         it('name is defined', function () {
-            for (let i = 0; i < allFeeds.length; i++) {
-                expect(allFeeds[i].name).toBeDefined();
-                expect(allFeeds[i].name).not.toBe(0);
-            }
-        });
-    });
+             allFeeds.forEach(function(feed){
+               expect(feed.name).toBeDefined();
+               expect(feed.name.length).toBeGreaterThan(0);
+             });
+         });
 
 
     // Test suite for the menu
@@ -39,10 +38,11 @@ $(function () {
 
         //This test ensures that  the menu changes visibility when the menu icon is clicked.
         it('is displayed when clicked and hidden when clicked again', function () {
-            expect($("body").hasClass("menu-hidden")).toBeTruthy();
-
             menuClicked.click();
             expect($("body").hasClass("menu-hidden")).toBeFalsy();
+            
+            menuClicked.click();
+            expect($("body").hasClass("menu-hidden")).toBeTruthy();
         });
 
         //Test suite for the initial entries
@@ -59,7 +59,7 @@ $(function () {
                 jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
             });
 
-            let Entries = document.querySelector(".feed").getElementsByClassName("entry");
+            let Entries = document.querySelectorAll('.feed .entry');
             beforeEach(function (done) {
                 loadFeed(0, function () {
                     done();
@@ -79,16 +79,14 @@ $(function () {
 
                 let starterFeed;
                 let newFeed;
-                beforeEach(function (done) {
-                    loadFeed(0, function () {
+                beforeEach(function(done){
+                    loadFeed(0, function() {
                         starterFeed = document.querySelectorAll(".feed h2")[0];
-                        console.log(starterFeed);
+                        done(); 
+                        loadFeed(1, Function(){
+                                 newFeed = document.querySelectorAll(".feed h2")[0];
                         done();
-                    });
-                    loadFeed(1, function () {
-                        newFeed = document.querySelectorAll(".feed h2")[0];
-                        console.log(newFeed);
-                        done();
+                        });
                     });
                 });
 
