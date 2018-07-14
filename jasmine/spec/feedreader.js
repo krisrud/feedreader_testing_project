@@ -50,16 +50,16 @@ $(function () {
     //Test suite for the initial entries
     describe('Initial Entries', function () {
 
-        // let originalTimeout;
-        //
-        // beforeEach(function () {
-        //     originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
-        //     jasmine.DEFAULT_TIMEOUT_INTERVAL = 30000;
-        // });
-        //
-        // afterEach(function () {
-        //     jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
-        // });
+        let originalTimeout;
+        
+            beforeEach(function () {
+                originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
+                jasmine.DEFAULT_TIMEOUT_INTERVAL = 30000;
+           });
+        
+           afterEach(function () {
+             jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
+         });
 
         let Entries;
         beforeEach(function (done) {
